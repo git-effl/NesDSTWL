@@ -13,6 +13,7 @@ s16 buffer[MIXBUFSIZE*20];
 
 void readAPU(void);
 void resetAPU(void);
+void dealrawpcm(unsigned char *out)
 
 static int chan = 0;
 
