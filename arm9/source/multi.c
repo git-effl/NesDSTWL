@@ -22,6 +22,7 @@ static inline int Wifi_TxBufferWordsAvailable(void) {
 #ifndef Wifi_TxBufferWrite
 static inline int Wifi_TxBufferWrite(int base, int numwords, const unsigned short * data) {
     int i;
+	volatile u16 *txbuf = (volatile u16 *) ((u32)WifiData + WifiData->txbufData);
     for (i = 0; i < numwords; i++) {
         txbuf[base + i] = data[i];
     }
