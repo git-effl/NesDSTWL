@@ -18,6 +18,8 @@ void dealrawpcm(unsigned char *out);
 
 static int chan = 0;
 
+extern const short logtable[1024];
+
 static inline short soundconvert(short output, int sft)
 {
 	if(output >= 0) {
