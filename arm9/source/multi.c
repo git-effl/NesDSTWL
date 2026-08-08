@@ -11,6 +11,23 @@
 #define  Wifi_InitDefault(x) Wifi_InitDefaultCustom(x)
 #endif
 
+#ifndef Wifi_TxBufferWordsAvailable
+static inline int Wifi_TxBufferWordsAvailable(void) {
+    return (WifiData->txbufIn >= WifiData->txbufOut) ?
+		((WIFI_TXBUFFER_SIZE / 2) - (WifiData->txbufIn - WifiData->txbufOut)) :
+		((WifiData->txbufOut - WifiData->txbufIn));
+}
+#endif
+
+#ifndef Wifi_TxBufferWrite
+static inline int Wifi_TxBufferWrite(int base, int numwords, const unsigned short * data) {
+    int i;
+    for (i = 0; i < numwords; i++) {
+        WifiData->txbuffer[base + i] = data[i];
+    }
+}
+#endif
+
 char data[4096];
 static const char nesds[32]		= {0xB2, 0xD1, 'n', 'e', 's', 'd', 's', 0};
 static const char nfconnect[32]	= {0xB2, 0xD1, 'c', 'o', 'n', 'e', 'd', 0};
