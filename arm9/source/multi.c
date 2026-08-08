@@ -23,7 +23,7 @@ static inline int Wifi_TxBufferWordsAvailable(void) {
 static inline int Wifi_TxBufferWrite(int base, int numwords, const unsigned short * data) {
     int i;
     for (i = 0; i < numwords; i++) {
-        WifiData->txbuffer[base + i] = data[i];
+        txbuf[base + i] = data[i];
     }
 }
 #endif
