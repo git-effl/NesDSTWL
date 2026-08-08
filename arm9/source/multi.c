@@ -7,6 +7,10 @@
 #include "menu.h"
 #include "multi.h"
 
+#ifndef  Wifi_InitDefault
+#define  Wifi_InitDefault(x) Wifi_InitDefaultCustom(x)
+#endif
+
 char data[4096];
 static const char nesds[32]		= {0xB2, 0xD1, 'n', 'e', 's', 'd', 's', 0};
 static const char nfconnect[32]	= {0xB2, 0xD1, 'c', 'o', 'n', 'e', 'd', 0};
