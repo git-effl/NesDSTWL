@@ -176,7 +176,7 @@ void Timer_10ms(void) {
 
 void initNiFi()
 {
-	Wifi_InitDefault(false);
+	Wifi_InitDefaultCustom(false);
 	Wifi_SetPromiscuousMode(1);
 	//Wifi_EnableWifi();
 	Wifi_RawSetPacketHandler(Handler);
