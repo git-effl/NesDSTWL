@@ -7,9 +7,6 @@
 #include "menu.h"
 #include "multi.h"
 
-#ifndef  Wifi_InitDefault
-#define  Wifi_InitDefault(x) Wifi_InitDefaultCustom(x)
-#endif
 
 #ifndef Wifi_TxBufferWordsAvailable
 static inline int Wifi_TxBufferWordsAvailable(void) {
