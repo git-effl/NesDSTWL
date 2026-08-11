@@ -28,7 +28,6 @@ jobs:
           make
           mkdir nesDS/
           cp nesDS.nds nesDS/
-          cp nesDS.dsi nesDS/
       - name: Publish build to GH Actions
         uses: actions/upload-artifact@v4
         with:
@@ -40,4 +39,3 @@ jobs:
         with:
           files: |
             nesDS/nesDS.nds
-            nesDS/nesDS.dsi
