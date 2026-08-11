@@ -188,11 +188,9 @@ void Timer_10ms(void) {
     Wifi_Timer(10);
 }
 
-vvoid initNiFi()
+void initNiFi()
 {
-    // Change Wifi_InitDefaultCustom to Wifi_InitDefault:
-    Wifi_InitDefault(WIFIINIT_DEFAULT);
-    
+    Wifi_InitDefaultCustom(false);
     Wifi_SetPromiscuousMode(1);
     Wifi_RawSetPacketHandler(Handler);
     Wifi_SetChannel(10);
