@@ -188,9 +188,11 @@ void Timer_10ms(void) {
     Wifi_Timer(10);
 }
 
-void initNiFi()
+vvoid initNiFi()
 {
-    Wifi_InitDefaultCustom(false);
+    // Change Wifi_InitDefaultCustom to Wifi_InitDefault:
+    Wifi_InitDefault(WIFIINIT_DEFAULT);
+    
     Wifi_SetPromiscuousMode(1);
     Wifi_RawSetPacketHandler(Handler);
     Wifi_SetChannel(10);
@@ -206,7 +208,6 @@ void initNiFi()
         irqEnable(IRQ_TIMER3);
     }
 }
-
 //called by play()
 void do_multi()
 {
