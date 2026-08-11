@@ -190,7 +190,9 @@ void Timer_10ms(void) {
 
 void initNiFi()
 {
-    Wifi_InitDefaultCustom(false);
+    // Try Wifi_Init(0) or Wifi_InitDefault(0) based on what's in your dswifi_arm9 source files:
+    Wifi_Init(0);
+    
     Wifi_SetPromiscuousMode(1);
     Wifi_RawSetPacketHandler(Handler);
     Wifi_SetChannel(10);
